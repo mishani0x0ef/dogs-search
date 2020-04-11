@@ -1,3 +1,5 @@
+import { NbButtonModule, NbCardModule, NbIconModule } from '@nebular/theme';
+
 import { AdoptionPageComponent } from './adoption-page/adoption-page.component';
 import { AdoptionRoutingModule } from './adoption-routing.module';
 import { CommonModule } from '@angular/common';
@@ -9,6 +11,10 @@ import { NgModule } from '@angular/core';
   imports: [
     CommonModule,
     AdoptionRoutingModule,
+
+    NbButtonModule,
+    NbCardModule,
+    NbIconModule,
   ]
 })
 export class AdoptionModule { }

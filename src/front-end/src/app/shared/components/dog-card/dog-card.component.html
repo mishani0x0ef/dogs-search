@@ -1,1 +1,20 @@
-<p>dog-card works!</p>
+<nb-card class="card">
+    <nb-card-body [style.backgroundImage]="imageUrl" style="background-size: cover;">
+    </nb-card-body>
+    <nb-card-footer>
+        <section class="card__title">
+            <strong>{{dog.name}}</strong>
+            <span>, {{dog.age}} years</span>
+        </section>
+        <section class="card__gender">
+            <small class="text-hint"> Gender: {{dog.gender}} </small>
+        </section>
+        <section class="card__story">
+            <small>A nebula is an interstellar cloud of dust, hydrogen, helium and other ionized gases. Originally, nebula was a name for any diffuse astronomical object, including galaxies beyond the Milky Way.</small>
+        </section>
+        <section class="card__actions">
+            <nb-icon icon="star-outline" status="danger"></nb-icon>
+            <button nbButton outline status="primary">Adopt</button>
+        </section>
+    </nb-card-footer>
+</nb-card>

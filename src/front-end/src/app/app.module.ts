@@ -1,4 +1,4 @@
-import { NbLayoutModule, NbThemeModule } from '@nebular/theme';
+import { NbCardModule, NbLayoutModule, NbThemeModule } from '@nebular/theme';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +19,7 @@ import { NgModule } from '@angular/core';
     NbThemeModule.forRoot({ name: 'default' }),
     NbLayoutModule,
     NbEvaIconsModule,
+    NbCardModule,
 
     LayoutModule,
   ],
