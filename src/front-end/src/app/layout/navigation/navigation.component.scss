@@ -1,0 +1,10 @@
+.nav {
+    a {
+        text-decoration: none;
+    }
+
+    a.nav_link--active {
+        // TODO: provide some fancy styles
+        text-decoration: underline;
+    }
+}
