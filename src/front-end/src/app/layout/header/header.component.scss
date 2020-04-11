@@ -1,0 +1,22 @@
+$logo-size: 50px;
+
+.header {
+    display: flex;
+    align-items: center;
+
+    &_logo {
+        max-height: $logo-size;
+        max-width: $logo-size;
+
+        img {
+            max-height: $logo-size;
+            max-width: $logo-size;
+            object-fit: contain;
+            padding-right: 10px;
+        }
+    }
+
+    &_title {
+        font-weight: bold;
+    }
+}
