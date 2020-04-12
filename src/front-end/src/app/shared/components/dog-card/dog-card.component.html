@@ -7,14 +7,15 @@
             <span>, {{dog.age}} years</span>
         </section>
         <section class="card__gender">
-            <small class="text-hint"> Gender: {{dog.gender}} </small>
+            <small class="text-hint"> Gender: </small>
+            <small [ngClass]="info.textStatus">{{dog.gender}}</small>
         </section>
         <section class="card__story">
             <small>A nebula is an interstellar cloud of dust, hydrogen, helium and other ionized gases. Originally, nebula was a name for any diffuse astronomical object, including galaxies beyond the Milky Way.</small>
         </section>
         <section class="card__actions">
-            <nb-icon icon="star-outline" status="danger"></nb-icon>
-            <button nbButton outline status="primary">Adopt</button>
+            <nb-icon icon="star-outline" [status]="info.status"></nb-icon>
+            <button nbButton outline [status]="info.status">{{info.adoptionText}}</button>
         </section>
     </nb-card-footer>
 </nb-card>

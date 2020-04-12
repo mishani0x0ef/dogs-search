@@ -15,5 +15,11 @@ export class DogCardComponent {
     return `url(${this.dog.imageUrl})`;
   }
 
+  get info() {
+    return this.dog.gender === 'female'
+      ? { status: 'danger', adoptionText: 'Удочерити', textStatus: 'text-danger' }
+      : { status: 'primary', adoptionText: 'Усиновити', textStatus: 'text-primary' };
+  }
+
   constructor() { }
 }
