@@ -1,5 +1,8 @@
+using Newtonsoft.Json;
+
 public class Dog
 {
+    [JsonProperty("id")]
     public int DogId { get; set; }
     public string Name { get; set; }
     public int Age { get; set; }
