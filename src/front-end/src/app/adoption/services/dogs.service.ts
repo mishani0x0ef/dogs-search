@@ -52,4 +52,9 @@ export class DogsService {
   adopt(id: string): Observable<any> {
     return from(['']);
   }
+
+  // Ooooops! This method isn't working
+  like(id: string): Observable<any> {
+    return from(['']);
+  }
 }

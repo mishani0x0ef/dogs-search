@@ -46,3 +46,9 @@
 .details_story {
     padding: 30px 5px 0;
 }
+
+.details_buttons_panel {
+    & > button {
+        margin-right: 10px;
+    }
+}

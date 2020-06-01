@@ -16,12 +16,13 @@
                     <small [ngClass]="info.textStatus">{{dog.gender}}</small>
                 </div>
             </div>
-            <div class="col-6 text-right">
+            <div class="col-6 text-right details_buttons_panel">
+                <button nbButton ghost status="danger"><nb-icon icon="star" (click)="like()"></nb-icon></button>
                 <button nbButton status="success" (click)="adopt()">Adopt</button>
             </div>
         </div>
         <div class="col-12">
-            <span class="text-hint">You can adopt this dog!</span>
+            <small class="text-hint">You can adopt this dog!</small>
         </div>
         <div class="col-12">
             <p></p>
