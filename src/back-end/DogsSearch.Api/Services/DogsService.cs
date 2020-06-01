@@ -1,16 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Threading.Tasks;
 using Dapper;
+using Microsoft.Extensions.Configuration;
 
 public class DogsService : IDogsService
 {
-    private readonly IDbConnection _connection;
+    private readonly IConfiguration _configuration;
 
-    public DogsService(IDbConnection connection)
+    public DogsService(IConfiguration configuration)
     {
-        _connection = connection;
+        _configuration = configuration;
     }
 
     public async Task<IEnumerable<Dog>> Get()
@@ -20,12 +22,18 @@ select
     d.DogId,
     d.Name,
     d.Age,
-    d.Story
+    d.Gender,
+    d.ImageURL,
+    d.Story,
+    d.IsAdopted
 from
-    dbo.Dogs d
+    dbo.Dog d
         ";
 
-        return await _connection.QueryAsync<Dog>(query);
+        using (var connection = GetConnection())
+        {
+            return await connection.QueryAsync<Dog>(query);
+        }
     }
 
     public async Task<Dog> GetById(int id)
@@ -35,14 +43,20 @@ select
     d.DogId,
     d.Name,
     d.Age,
-    d.Story
+    d.Gender,
+    d.ImageURL,
+    d.Story,
+    d.IsAdopted
 from
-    dbo.Dogs d
+    dbo.Dog d
 where
     d.DogId = @id
         ";
 
-        return await _connection.QuerySingleAsync<Dog>(query, new { id });
+        using (var connection = GetConnection())
+        {
+            return await connection.QuerySingleAsync<Dog>(query, new { id });
+        }
     }
 
     public async Task Adopt(int id)
@@ -53,13 +67,24 @@ where
             throw new InvalidOperationException($"Cannot addopt the dog '{id}' - '{dog.Name}'. Dog is already addopted.");
 
         var query = @"
-update Dogs
+update Dog
 set 
     IsAdopted = 1
 where 
     DogId = @id
         ";
 
-        return await _connection.ExecuteAsync(query, new { id });
+        using (var connection = GetConnection())
+        {
+            await connection.ExecuteAsync(query, new { id });
+        }
+    }
+
+    private IDbConnection GetConnection()
+    {
+        var connectionString = _configuration.GetConnectionString("DogsDb");
+        var connection = new SqlConnection(connectionString);
+        connection.Open();
+        return connection;
     }
 }
