@@ -2,10 +2,10 @@
 
     <nb-card-front>
         <nb-card class="card">
-            <nb-card-body [style.backgroundImage]="imageUrl" style="background-size: cover;">
+            <nb-card-body [style.backgroundImage]="imageUrl" style="background-size: cover; cursor: pointer;" (click)="openDetails()">
             </nb-card-body>
             <nb-card-footer>
-                <section class="card__title">
+                <section class="card__title" >
                     <strong>{{dog.name}}</strong>
                     <span>, {{dog.age}} years</span>
                 </section>
@@ -14,13 +14,11 @@
                     <small [ngClass]="info.textStatus">{{dog.gender}}</small>
                 </section>
                 <section class="card__story">
-                    <small>A nebula is an interstellar cloud of dust, hydrogen, helium and other ionized gases.
-                        Originally, nebula was a name for any diffuse astronomical object, including galaxies beyond the
-                        Milky Way.</small>
+                    <small>{{dog.story}}</small>
                 </section>
                 <section class="card__actions">
                     <nb-icon icon="star-outline" [status]="info.status"></nb-icon>
-                    <button nbButton outline [status]="info.status">{{info.adoptionText}}</button>
+                    <!-- <button nbButton outline [status]="info.status">{{info.adoptionText}}</button> -->
                 </section>
             </nb-card-footer>
         </nb-card>
@@ -38,9 +36,7 @@
                     <small [ngClass]="info.textStatus">{{dog.gender}}</small>
                 </section>
                 <section class="card__story--full">
-                    <small>A nebula is an interstellar cloud of dust, hydrogen, helium and other ionized gases.
-                        Originally, nebula was a name for any diffuse astronomical object, including galaxies beyond the
-                        Milky Way.</small>
+                    <small>{{dog.story}}</small>
                 </section>
             </nb-card-footer>
         </nb-card>
