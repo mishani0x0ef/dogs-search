@@ -6,6 +6,10 @@ Sentry.init({
     dsn: 'https://ff1c9b77c26f4cc08c71bffce5bc475f@o353044.ingest.sentry.io/5261216'
 });
 
+Sentry.configureScope((scope) => {
+    scope.setTag('dev-machine', 'true');
+  });
+
 @Injectable()
 export class SentryErrorHandler implements ErrorHandler {
     handleError(error: any): void {
