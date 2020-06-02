@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from './layout/layout.module';
 import { MyErrorHandler } from './shared/services/error-handler.service';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { SentryErrorHandler } from './shared/services/sentry-handler.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     LayoutModule,
   ],
   providers: [
-    { provide: ErrorHandler, useClass: MyErrorHandler }
+    { provide: ErrorHandler, useClass: SentryErrorHandler }
   ],
   bootstrap: [AppComponent]
 })
