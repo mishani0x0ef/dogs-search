@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using NLog.Web;
+using Sentry;
 
 namespace DogsSearch.Api
 {
@@ -22,6 +23,12 @@ namespace DogsSearch.Api
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
                 // .UseNLog()
-                .UseSentry();
+                .UseSentry(config =>
+                {
+                    config.ConfigureScope(scope =>
+                    {
+                        scope.SetTag("dev-machine", "true");
+                    });
+                });
     }
 }
