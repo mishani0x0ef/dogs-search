@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace DogsSearch.Api.Controllers
 {
@@ -9,10 +10,12 @@ namespace DogsSearch.Api.Controllers
     public class DogsController : ControllerBase
     {
         private readonly IDogsService _dogsService;
+        private readonly ILogger<DogsController> _logger;
 
-        public DogsController(IDogsService dogsService)
+        public DogsController(IDogsService dogsService, ILogger<DogsController> logger)
         {
             _dogsService = dogsService;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -42,6 +45,8 @@ namespace DogsSearch.Api.Controllers
         {
             if (id < 1)
                 return BadRequest();
+
+            _logger.LogInformation($"Start attempt to addopt dog with id {id}");
 
             await _dogsService.Adopt(id);
             return Ok();
