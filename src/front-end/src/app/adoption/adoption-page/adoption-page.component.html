@@ -1,6 +1,10 @@
-<div class="page">
-    <app-dog-card *ngFor="let dog of dogs" [dog]="dog"></app-dog-card>
+<div class="page justify-content-center">
+  <app-dog-card
+    class="dog-card-container"
+    *ngFor="let dog of dogs"
+    [dog]="dog"
+  ></app-dog-card>
+  <!-- <div class="page_card-stub"></div>
     <div class="page_card-stub"></div>
-    <div class="page_card-stub"></div>
-    <div class="page_card-stub"></div>
+    <div class="page_card-stub"></div> -->
 </div>

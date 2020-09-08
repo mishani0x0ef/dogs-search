@@ -1,49 +1,60 @@
-<nb-flip-card class="card">
+<nb-flip-card [showToggleButton]="false" [flipped]="flipped" class="card">
+  <nb-card-front>
+    <nb-card class="card">
+      <nb-card-body
+        [style.backgroundImage]="imageUrl"
+        style="background-size: cover; background-position: 50%"
+      >
+      </nb-card-body>
+      <nb-card-footer>
+        <section class="card__title">
+          <strong>{{ dog.name }} </strong>
+          <span>, {{ dog.age }} years</span>
+        </section>
+        <section class="card__gender">
+          <small class="text-hint"> Gender: </small>
+          <small [ngClass]="info.textStatus">{{ dog.gender }}</small>
+        </section>
+        <section class="card__story">
+          <small
+            >A nebula is an interstellar cloud of dust, hydrogen, helium and
+            other ionized gases. Originally, nebula was a name for any diffuse
+            astronomical object, including galaxies beyond the Milky Way.</small
+          >
+        </section>
+        <section class="card__actions">
+          <nb-icon icon="star-outline" [status]="info.status"></nb-icon>
+          <button nbButton outline [status]="info.status">
+            {{ info.adoptionText }}
+          </button>
+          <a class="nb-shuffle" flipped="false" (click)="toggleView()">INFO</a>
+        </section>
+      </nb-card-footer>
+    </nb-card>
+  </nb-card-front>
 
-    <nb-card-front>
-        <nb-card class="card">
-            <nb-card-body [style.backgroundImage]="imageUrl" style="background-size: cover;">
-            </nb-card-body>
-            <nb-card-footer>
-                <section class="card__title">
-                    <strong>{{dog.name}}</strong>
-                    <span>, {{dog.age}} years</span>
-                </section>
-                <section class="card__gender">
-                    <small class="text-hint"> Gender: </small>
-                    <small [ngClass]="info.textStatus">{{dog.gender}}</small>
-                </section>
-                <section class="card__story">
-                    <small>A nebula is an interstellar cloud of dust, hydrogen, helium and other ionized gases.
-                        Originally, nebula was a name for any diffuse astronomical object, including galaxies beyond the
-                        Milky Way.</small>
-                </section>
-                <section class="card__actions">
-                    <nb-icon icon="star-outline" [status]="info.status"></nb-icon>
-                    <button nbButton outline [status]="info.status">{{info.adoptionText}}</button>
-                </section>
-            </nb-card-footer>
-        </nb-card>
-    </nb-card-front>
-
-    <nb-card-back>
-        <nb-card class="card">
-            <nb-card-footer>
-                <section class="card__title">
-                    <strong>{{dog.name}}</strong>
-                    <span>, {{dog.age}} years</span>
-                </section>
-                <section class="card__gender">
-                    <small class="text-hint"> Gender: </small>
-                    <small [ngClass]="info.textStatus">{{dog.gender}}</small>
-                </section>
-                <section class="card__story--full">
-                    <small>A nebula is an interstellar cloud of dust, hydrogen, helium and other ionized gases.
-                        Originally, nebula was a name for any diffuse astronomical object, including galaxies beyond the
-                        Milky Way.</small>
-                </section>
-            </nb-card-footer>
-        </nb-card>
-    </nb-card-back>
-
+  <nb-card-back>
+    <nb-card class="card">
+      <nb-card-footer class="position-rel">
+        <section class="card__title">
+          <strong>{{ dog.name }}</strong>
+          <span>, {{ dog.age }} years</span>
+        </section>
+        <section class="card__gender">
+          <small class="text-hint"> Gender: </small>
+          <small [ngClass]="info.textStatus">{{ dog.gender }}</small>
+        </section>
+        <section class="card__story--full">
+          <small
+            >A nebula is an interstellar cloud of dust, hydrogen, helium and
+            other ionized gases. Originally, nebula was a name for any diffuse
+            astronomical object, including galaxies beyond the Milky Way.</small
+          >
+        </section>
+        <section class="card__actions--bottom">
+          <a class="nb-shuffle" flipped="false" (click)="toggleView()">INFO</a>
+        </section>
+      </nb-card-footer>
+    </nb-card>
+  </nb-card-back>
 </nb-flip-card>

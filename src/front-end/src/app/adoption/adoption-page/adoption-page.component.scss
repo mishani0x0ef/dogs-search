@@ -1,13 +1,22 @@
 .page {
-    display: flex;
-    flex-wrap: wrap;
+    --auto-grid-min-size: 300px;
 
-    & > app-dog-card {
-        flex: 1;
-        margin-left: 15px;
-    }
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
+    grid-gap: 20px;
+    max-width: 1280px;
+    margin: auto;
 
-    &_card-stub {
-        flex: 1;
-    }
+    // & > .dog-card-container {
+    // flex: 1;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: stretch;
+    // margin-right: 3%;
+    // margin-left: 15px;
+    // }
+
+    // &_card-stub {
+    //     flex: 1;
+    // }
 }
