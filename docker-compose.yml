@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+
+    back-end:
+      build:
+        context: ./src/back-end/DogsSearch.Api
+        dockerfile: Dockerfile
+      ports:
+        - 5000:80
+      networks:
+        - dogs-search-network
+    
+    # TODO: add front-end. MR
+
+networks:
+    
+    dogs-search-network:
+        driver: bridge

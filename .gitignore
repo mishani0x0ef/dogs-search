@@ -106,3 +106,7 @@ dist
 src/back-end/DogsSearch.Api/bin/
 
 src/back-end/DogsSearch.Api/obj/
+
+*.user
+
+src/back-end/DogsSearch.Api/.vs/
