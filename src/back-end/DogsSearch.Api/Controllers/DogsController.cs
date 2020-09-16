@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -26,9 +27,9 @@ namespace DogsSearch.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Dog>> GetById(int id)
+        public async Task<ActionResult<Dog>> GetById(Guid id)
         {
-            if (id < 1)
+            if (id == Guid.Empty)
                 return BadRequest();
 
             var dog = await _dogsService.GetById(id);
@@ -39,11 +40,24 @@ namespace DogsSearch.Api.Controllers
             return Ok(dog);
         }
 
+        [HttpPost]
+        public async Task<ActionResult<Guid>> CreateDog([FromBody] Dog dog)
+        {
+            var id = await _dogsService.Create(dog);
+            return Ok(id);
+        }
+
+        [HttpDelete]
+        public async Task RemoveDog(Guid id)
+        {
+            await _dogsService.RemoveById(id);
+        }
+
         [Route("{id}/adopt")]
         [HttpPost]
-        public async Task<IActionResult> Adopt(int id)
+        public async Task<IActionResult> Adopt(Guid id)
         {
-            if (id < 1)
+            if (id == Guid.Empty)
                 return BadRequest();
 
             _logger.LogInformation($"Start attempt to addopt dog with id {id}");
