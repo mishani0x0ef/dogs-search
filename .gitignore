@@ -110,3 +110,5 @@ src/back-end/DogsSearch.Api/obj/
 *.user
 
 src/back-end/DogsSearch.Api/.vs/
+
+src/back-end/DogsSearch.Api/DogsSearch.Api.xml
