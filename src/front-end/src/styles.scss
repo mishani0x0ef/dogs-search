@@ -1,8 +1,29 @@
-@import 'themes';
+@import "themes";
 
-@import '~@nebular/theme/styles/globals';
+@import "~@nebular/theme/styles/globals";
+
+@import "./app/shared/components/base/media-queries";
 
 @include nb-install() {
   @include nb-theme-global();
-};
+}
 /* You can add global styles to this file, and also import other style files */
+// @import "./app/shared/components/base/media-queries";
+// not working for all scss components
+
+// not working in nav component
+nav {
+  justify-content: center !important;
+}
+.nav-mobile {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: center;
+    justify-content: center;
+    width: 100%;
+    @include respond-above(sm) {
+      flex-direction: row;
+    }
+  }
+}

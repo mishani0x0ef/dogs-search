@@ -1,11 +1,22 @@
-.nav {
-    a {
-        text-decoration: none;
-        margin-right: 10px;
-    }
+@import "../../shared/components/base/media-queries";
 
-    a.nav_link--active {
-        // TODO: provide some fancy styles
-        text-decoration: underline;
+.nav {
+  a {
+    text-decoration: none;
+    margin-right: 10px;
+  }
+
+  .nav_link--active {
+    // TODO: provide some fancy styles
+    text-decoration: underline;
+    color: violet;
+  }
+  .nav-link {
+    font-size: 56px;
+    margin: 20px 0;
+    @include respond-above(sm) {
+      font-size: 16px;
+      margin: 0;
     }
+  }
 }

@@ -1,7 +1,16 @@
-<header class="header">
+<div class="header">
   <div class="header_logo">
-    <img src="assets/icons/dog-running.svg" />
+    <img class="logo-image" src="../../../assets/images/logo-cookies.svg" />
+    <!-- <div class="header_title">У ПСА</div> -->
   </div>
-  <div class="header_title">У ПСА</div>
-  <app-navigation></app-navigation>
-</header>
+
+  <app-navigation
+    class="nav-mobile"
+    [ngClass]="{ 'nav-mobile_opened': menuClick }"
+    (observableEvent)="receiveLinkClicked($event)"
+  ></app-navigation>
+  <div class="menu-btn-mobile">
+    <input type="checkbox" id="toggle-text-on-left" (click)="menuClicked()" />
+    <label for="toggle-text-on-left"><i></i><span></span></label>
+  </div>
+</div>
