@@ -1,0 +1,54 @@
+:host {
+    background-color: white;
+    display: block;
+    border-radius: 4px;
+    padding: 30px 24px;
+}
+
+.details_image {
+    height: 300px;
+    background-size: cover;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+
+    &:hover:after {
+        content: ' ';
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.2);
+        position: absolute;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.details_map {
+    height: 150px;
+    border-radius: 4px;
+    padding: 10px 0;
+
+    &:hover:after {
+        content: ' ';
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.2);
+        position: absolute;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.details_map_hint {
+    padding: 0 10px;
+}
+
+.details_story {
+    padding: 30px 5px 0;
+}
+
+.details_buttons_panel {
+    & > button {
+        margin-right: 10px;
+    }
+}

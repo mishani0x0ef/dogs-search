@@ -1,6 +1,5 @@
 <div class="page">
-    <app-dog-card *ngFor="let dog of dogs" [dog]="dog"></app-dog-card>
-    <div class="page_card-stub"></div>
-    <div class="page_card-stub"></div>
-    <div class="page_card-stub"></div>
+    <div class="row">
+        <app-dog-card class="col-3" *ngFor="let dog of dogs" [dog]="dog"></app-dog-card>
+    </div>
 </div>
