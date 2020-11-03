@@ -6,43 +6,47 @@ $card-height: 500px;
 //     justify-content: center;
 // }
 .position-rel {
-    position: relative;
-    height: 100%;
+  position: relative;
+  height: 100%;
 }
 
 .card {
-    height: $card-height;
-    // max-width: $card-max-width;
+  height: $card-height;
+  // max-width: $card-max-width;
 
-    &__story {
-        max-height: 50px;
-        overflow: hidden;
-        position: relative;
+  &__story {
+    max-height: 50px;
+    overflow: hidden;
+    position: relative;
 
-        &:after {
-            content: "";
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 50px;
-            background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, white 100%);
-            position: absolute;
-        }
-
-        &--full {
-            max-height: auto;
-        }
+    &:after {
+      content: "";
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      background-image: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0) 0,
+        white 100%
+      );
+      position: absolute;
     }
 
-    &__actions {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        &--bottom {
-            position: absolute;
-            bottom: 24px;
-            right: 24px;
-        }
+    &--full {
+      max-height: auto;
     }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &--bottom {
+      position: absolute;
+      bottom: 24px;
+      right: 24px;
+    }
+  }
 }

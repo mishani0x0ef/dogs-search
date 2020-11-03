@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-12 col-sm-6">
+        <div class="details_image" [style.backgroundImage]="imageUrl">
+        </div>
+    </div>
+
+    <div class="col-12 col-sm-6">
+        <div class="row">
+            <div class="col-6">
+                <div class="col-12">
+                    <strong>{{dog.name}}</strong>
+                    <span>, {{dog.age}} years</span>
+                </div>
+                <div class="col-12">
+                    <small class="text-hint"> Gender: </small>
+                    <small [ngClass]="info.textStatus">{{dog.gender}}</small>
+                </div>
+            </div>
+            <div class="col-6 text-right details_buttons_panel">
+                <button nbButton ghost status="danger"><nb-icon icon="star" (click)="like()"></nb-icon></button>
+                <button nbButton status="success" (click)="adopt()">Adopt</button>
+            </div>
+        </div>
+        <div class="col-12">
+            <small class="text-hint">You can adopt this dog!</small>
+        </div>
+        <div class="col-12">
+            <p></p>
+            <img class="details_map" src="https://www.seoshark.co.nz/wp-content/uploads/2018/11/local-seo.png" />
+        </div>
+        <div class="col-12">
+            <button nbButton shape="round" outline size="small" status="success">Map</button>
+            <small class="details_map_hint text-hint">Only 5km to your new friend.</small>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="details_story">
+            {{dog.story}}
+        </div>
+    </div>
+</div>

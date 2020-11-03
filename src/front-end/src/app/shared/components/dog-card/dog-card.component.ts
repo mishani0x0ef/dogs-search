@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 import { Dog } from '../../models';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dog-card',
@@ -33,5 +34,9 @@ export class DogCardComponent {
     this.flipped = !this.flipped;
   }
 
-  constructor() {}
+  constructor(private router: Router) {}
+
+  openDetails() {
+    this.router.navigateByUrl(`/adoption/${this.dog.id}`);
+  }
 }

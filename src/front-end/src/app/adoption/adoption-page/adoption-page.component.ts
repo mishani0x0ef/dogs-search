@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Dog } from 'src/app/shared/models';
+import { DogsService } from '../services/dogs.service';
 import { PageComponent } from 'src/app/shared/components/base';
 import { Title } from '@angular/platform-browser';
 
@@ -12,7 +13,7 @@ import { Title } from '@angular/platform-browser';
 export class AdoptionPageComponent extends PageComponent implements OnInit {
   dogs: Dog[] = [];
 
-  constructor(title: Title) {
+  constructor(title: Title, private dogsService: DogsService) {
     super(title, 'Усиновлення');
   }
 
@@ -34,5 +35,9 @@ export class AdoptionPageComponent extends PageComponent implements OnInit {
         'https://ichef.bbci.co.uk/news/976/cpsprodpb/12A9B/production/_111434467_gettyimages-1143489763.jpg',
     };
     this.dogs = [male, male, female, male, female, female];
+    // this.addDisposable(
+    //   this.dogsService.getDogs()
+    //     .subscribe((dogs) => this.dogs = dogs)
+    // );
   }
 }
