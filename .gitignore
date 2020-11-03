@@ -102,3 +102,13 @@ dist
 
 # TernJS port file
 .tern-port
+
+src/back-end/DogsSearch.Api/bin/
+
+src/back-end/DogsSearch.Api/obj/
+
+*.user
+
+src/back-end/DogsSearch.Api/.vs/
+
+src/back-end/DogsSearch.Api/DogsSearch.Api.xml

@@ -4,4 +4,5 @@ export interface Dog {
     age: number;
     gender: 'male' | 'female';
     imageUrl?: string;
+    story: string;
 }
