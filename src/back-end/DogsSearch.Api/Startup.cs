@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using System.IO;
+using System.Reflection;
 
 namespace DogsSearch.Api
 {
@@ -32,8 +34,19 @@ namespace DogsSearch.Api
 
             services.AddSwaggerGen(c =>
             {
+                var assemblyDir = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Dogs Search API", Version = "v0.1" });
-                c.IncludeXmlComments("./DogsSearch.Api.xml");
+
+                // TODO: fix docs path for docker (currently location not working for Docker container). MR
+                try
+                {
+                    c.IncludeXmlComments($"{assemblyDir}/DogsSearch.Api.xml");
+                }
+                catch
+                {
+                }
+
                 c.DescribeAllEnumsAsStrings();
             });
         }
