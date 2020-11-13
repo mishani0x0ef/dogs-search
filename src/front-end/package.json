@@ -3,12 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "start npm run fake-server && ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "fake-server": "json-server --watch json-server/db.json --port 5000 --delay 2000 --routes json-server/routes.json"
+    "fake-server": "json-server json-server/db.json --watch --port 5000 --delay 2000 --routes json-server/routes.json"
   },
   "private": true,
   "dependencies": {
