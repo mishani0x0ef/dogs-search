@@ -1,0 +1,21 @@
+{
+  "dogs": [
+    {
+      "id": "92bac510-cf2f-4942-9ff7-abab0b40c546",
+      "name": "Cookie",
+      "birthday": "2020-11-13T16:24:49.671Z",
+      "imageUrl": "https://instagram.fiev9-1.fna.fbcdn.net/v/t51.2885-15/e35/s1080x1080/117429720_962039777629996_7491874173927597759_n.jpg?_nc_ht=instagram.fiev9-1.fna.fbcdn.net&_nc_cat=104&_nc_ohc=Y2an1UQHE4IAX-LlM_a&_nc_tp=15&oh=2f743b4eaf2d1df27410fbbc1122a557&oe=5F8A000B",
+      "gender": "female",
+      "story": "",
+      "location": {
+        "lat": 48.8954658,
+        "long": 24.7614244
+      },
+      "additionalImages": [
+        "https://instagram.fiev9-1.fna.fbcdn.net/v/t51.2885-15/e35/s1080x1080/117429720_962039777629996_7491874173927597759_n.jpg?_nc_ht=instagram.fiev9-1.fna.fbcdn.net&_nc_cat=104&_nc_ohc=Y2an1UQHE4IAX-LlM_a&_nc_tp=15&oh=2f743b4eaf2d1df27410fbbc1122a557&oe=5F8A000B"
+      ],
+      "isAdopted": false,
+      "age": 2
+    }
+  ]
+}
