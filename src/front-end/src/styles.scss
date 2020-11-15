@@ -11,7 +11,7 @@
 // @import "./app/shared/components/base/media-queries";
 // not working for all scss components
 
-// not working in nav component
+//  TODO: take a look at - https://angular.io/guide/component-styles#special-selectors
 nav {
   justify-content: center !important;
 }
