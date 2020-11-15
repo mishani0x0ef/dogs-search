@@ -1,16 +1,14 @@
 <div class="header">
   <div class="header_logo">
     <img class="logo-image" src="../../../assets/images/logo-cookies.svg" />
-    <!-- <div class="header_title">У ПСА</div> -->
   </div>
 
   <app-navigation
     class="nav-mobile"
-    [ngClass]="{ 'nav-mobile_opened': menuClick }"
-    (observableEvent)="receiveLinkClicked($event)"
+    [ngClass]="{ 'nav-mobile_opened': watchClick }"
   ></app-navigation>
   <div class="menu-btn-mobile">
-    <input type="checkbox" id="toggle-text-on-left" (click)="menuClicked()" />
+    <input type="checkbox" [checked]="watchClick" [value]="watchClick" id="toggle-text-on-left" (click)="menuItemClicked()" />
     <label for="toggle-text-on-left"><i></i><span></span></label>
   </div>
 </div>

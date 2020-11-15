@@ -20,8 +20,10 @@ export class DogsService {
     return this.http.get<Dog>(`/api/dogs/${id}`);
   }
 
-  adopt(id: string): Observable<any> {
-    return this.http.post(`/api/dogs/${id}/adopt`, null);
+    adopt(id: string): Observable<any> {
+        return this.http.post(`http://localhost:5000/dogs/${id}`, {
+            like: 3,
+        });
   }
 
   // Ooooops! This method isn't working

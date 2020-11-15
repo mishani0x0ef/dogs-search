@@ -6,7 +6,7 @@ const routes: Routes = [
   {
     path: 'adoption',
     loadChildren: () => import('./adoption/adoption.module').then(m => m.AdoptionModule)
-  }
+  },
 ];
 
 @NgModule({

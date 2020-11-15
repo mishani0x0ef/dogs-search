@@ -1,10 +1,5 @@
 $card-height: 500px;
-// $card-max-width: 300px;
 
-// :host {
-//     display: flex;
-//     justify-content: center;
-// }
 .position-rel {
   position: relative;
   height: 100%;
@@ -12,7 +7,6 @@ $card-height: 500px;
 
 .card {
   height: $card-height;
-  // max-width: $card-max-width;
 
   &__story {
     max-height: 50px;

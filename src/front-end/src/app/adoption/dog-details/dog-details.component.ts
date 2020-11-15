@@ -40,10 +40,11 @@ export class DogDetailsComponent extends PageComponent implements OnInit {
 
   adopt() {
     this.dogsService.adopt(this.dog.id)
-      .subscribe(() => {
-        alert('You are awesome! Thank you!');
-        this.router.navigate(['adoption']);
-      });
+        .subscribe(() => {
+            console.log(this.dog.id);
+            alert('You are awesome! Thank you!');
+            this.router.navigate(['adoption']);
+        });
   }
 
   like() {

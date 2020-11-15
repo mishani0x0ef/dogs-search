@@ -4,7 +4,8 @@
       <nb-card-body
         [style.backgroundImage]="imageUrl"
         style="background-size: cover; background-position: 50%"
-      >
+        [routerLink]="['/adoption', dog.id]"
+        >
       </nb-card-body>
       <nb-card-footer>
         <section class="card__title">
@@ -12,14 +13,12 @@
           <span>, {{ dog.age }} years</span>
         </section>
         <section class="card__gender">
-          <small class="text-hint"> Gender: </small>
+          <small class="text-hint">Gender: </small>
           <small [ngClass]="info.textStatus">{{ dog.gender }}</small>
         </section>
         <section class="card__story">
           <small
-            >A nebula is an interstellar cloud of dust, hydrogen, helium and
-            other ionized gases. Originally, nebula was a name for any diffuse
-            astronomical object, including galaxies beyond the Milky Way.</small
+            >{{ dog.story }}</small
           >
         </section>
         <section class="card__actions">
@@ -46,9 +45,7 @@
         </section>
         <section class="card__story--full">
           <small
-            >A nebula is an interstellar cloud of dust, hydrogen, helium and
-            other ionized gases. Originally, nebula was a name for any diffuse
-            astronomical object, including galaxies beyond the Milky Way.</small
+            >{{ dog.story }}</small
           >
         </section>
         <section class="card__actions--bottom">

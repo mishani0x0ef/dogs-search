@@ -18,26 +18,9 @@ export class AdoptionPageComponent extends PageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // TODO: get some real data
-    const male: Dog = {
-      id: '1232fafa-14124-gsaga-12e21w',
-      name: 'Кекс',
-      age: 4,
-      gender: 'male',
-      imageUrl: 'https://i.ytimg.com/vi/1Ne1hqOXKKI/maxresdefault.jpg',
-    };
-    const female: Dog = {
-      id: '1232fafa-14124-gsaga-12e21w',
-      name: 'Cookie',
-      age: 1.5,
-      gender: 'female',
-      imageUrl:
-        'https://ichef.bbci.co.uk/news/976/cpsprodpb/12A9B/production/_111434467_gettyimages-1143489763.jpg',
-    };
-    this.dogs = [male, male, female, male, female, female];
-    // this.addDisposable(
-    //   this.dogsService.getDogs()
-    //     .subscribe((dogs) => this.dogs = dogs)
-    // );
+    this.addDisposable(
+      this.dogsService.getDogs()
+        .subscribe((dogs) => this.dogs = dogs)
+    );
   }
 }

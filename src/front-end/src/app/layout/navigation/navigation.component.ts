@@ -1,26 +1,24 @@
 import { BaseComponent } from 'src/app/shared/components/base';
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { LayoutService } from '../services/layout.service';
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss'],
 })
-export class NavigationComponent extends BaseComponent {
-  @Input() menuClick: boolean;
-  @Output() observableEvent = new EventEmitter<boolean>();
+export class NavigationComponent extends BaseComponent implements OnInit {
+    watchClick: boolean;
+    constructor(private layoutservice: LayoutService) {
+        super();
+    }
 
-  constructor() {
-    super();
-  }
+    ngOnInit() {
+        this.layoutservice.watchClick.subscribe(x => { this.watchClick = x; });
+    }
 
-  menuItemClicked() {
-    console.log('before ' + this.menuClick);
-    this.menuClick = !this.menuClick;
-    this.observableEvent.emit(this.menuClick);
-    console.log('after ' + this.menuClick);
-  }
-  ngOnInit(): void {
-    console.log('on init !' + this.menuClick);
-  }
+    menuItemClicked() {
+        console.log(this.watchClick);
+        this.layoutservice.menuItemClicked();
+    }
 }
