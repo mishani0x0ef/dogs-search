@@ -6,8 +6,10 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class LayoutService {
     menuOpened = false;
+
     constructor() {
     }
+
     private click = new BehaviorSubject<boolean>(this.menuOpened);
     watchClick = this.click.asObservable();
 
