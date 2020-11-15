@@ -8,17 +8,17 @@ import { LayoutService } from '../services/layout.service';
   styleUrls: ['./navigation.component.scss'],
 })
 export class NavigationComponent extends BaseComponent implements OnInit {
-    watchClick: boolean;
+    isMenuOpened: boolean;
+
     constructor(private layoutservice: LayoutService) {
         super();
     }
 
     ngOnInit() {
-        this.layoutservice.watchClick.subscribe(x => { this.watchClick = x; });
+        this.layoutservice.isMenuOpened.subscribe(x => { this.isMenuOpened = x; });
     }
 
-    menuItemClicked() {
-        console.log(this.watchClick);
-        this.layoutservice.menuItemClicked();
+    toggleMenuVisibility() {
+        this.layoutservice.toggleMenuVisibility();
     }
 }

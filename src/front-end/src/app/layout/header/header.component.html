@@ -5,10 +5,10 @@
 
   <app-navigation
     class="nav-mobile"
-    [ngClass]="{ 'nav-mobile_opened': watchClick }"
+    [ngClass]="{ 'nav-mobile--opened': isMenuOpened }"
   ></app-navigation>
   <div class="menu-btn-mobile">
-    <input type="checkbox" [checked]="watchClick" [value]="watchClick" id="toggle-text-on-left" (click)="menuItemClicked()" />
+    <input type="checkbox" [checked]="isMenuOpened" [value]="isMenuOpened" id="toggle-text-on-left" (click)="toggleMenuVisibility()" />
     <label for="toggle-text-on-left"><i></i><span></span></label>
   </div>
 </div>

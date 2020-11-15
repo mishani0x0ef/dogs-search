@@ -11,9 +11,9 @@ export class LayoutService {
     }
 
     private click = new BehaviorSubject<boolean>(this.menuOpened);
-    watchClick = this.click.asObservable();
+    isMenuOpened = this.click.asObservable();
 
-    menuItemClicked() {
+    toggleMenuVisibility() {
         this.menuOpened = !this.menuOpened;
         this.click.next(this.menuOpened);
   }
