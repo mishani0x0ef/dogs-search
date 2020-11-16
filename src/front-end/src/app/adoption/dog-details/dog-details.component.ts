@@ -12,7 +12,9 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./dog-details.component.scss']
 })
 export class DogDetailsComponent extends PageComponent implements OnInit {
-  dog: Dog;
+    dog: Dog;
+    lat: number;
+    long: number;
 
   get imageUrl(): string {
     return `url(${this.dog.imageUrl})`;
@@ -32,8 +34,10 @@ export class DogDetailsComponent extends PageComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.dogsService.getDog(params.id)
         .subscribe((dog) => {
-          this.dog = dog;
-          this.setTitle(dog.name);
+            this.dog = dog;
+            this.setTitle(dog.name);
+            this.lat = dog.location.lat;
+            this.long = dog.location.long;
         });
     });
   }
@@ -46,6 +50,9 @@ export class DogDetailsComponent extends PageComponent implements OnInit {
             this.router.navigate(['adoption']);
         });
   }
+    editInfo() {
+        this.router.navigate(['adoption/dog-edit/:id']);
+    }
 
   like() {
     this.dogsService.like(this.dog.id)

@@ -15,15 +15,13 @@
         "https://ichef.bbci.co.uk/news/976/cpsprodpb/12A9B/production/_111434467_gettyimages-1143489763.jpg"
       ],
       "isAdopted": false,
-      "age": 2,
-      "like": false
+      "like": 1
     },
     {
       "id": "1232fafa-14124-gsaga-12e21w",
       "name": "Cookie",
       "gender": "female",
-      "imageUrl":
-            "https://ichef.bbci.co.uk/news/976/cpsprodpb/12A9B/production/_111434467_gettyimages-1143489763.jpg",
+      "imageUrl": "https://ichef.bbci.co.uk/news/976/cpsprodpb/12A9B/production/_111434467_gettyimages-1143489763.jpg",
       "story": "котік, коцюбасик, кусю, котан",
       "location": {
         "lat": 48.8954658,
@@ -33,8 +31,7 @@
         "https://ichef.bbci.co.uk/news/976/cpsprodpb/12A9B/production/_111434467_gettyimages-1143489763.jpg"
       ],
       "isAdopted": false,
-      "age": 2,
-      "like": false
+      "like": 1
     }
   ]
 }

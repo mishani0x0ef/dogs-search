@@ -240,22 +240,26 @@ $logo-size: 60px;
     padding-right: 10px;
   }
 }
+
 .nav-mobile {
   display: none;
   @include respond-above(sm) {
     display: flex;
     justify-content: space-between !important;
   }
-  &--opened {
-    display: flex;
-    justify-content: space-between !important;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%);
-    width: 100vw;
-    height: 100vh;
-    background-color: #ff6347;
+
+  @include respond-below(sm) {
+    &--opened {
+        display: flex;
+        justify-content: space-between !important;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%);
+        width: 100vw;
+        height: 100vh;
+        background-color: #ff6347;
+    }
   }
 }
 

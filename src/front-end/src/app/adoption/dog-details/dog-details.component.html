@@ -19,6 +19,7 @@
             <div class="col-6 text-right details_buttons_panel">
                 <button nbButton ghost status="danger"><nb-icon icon="star" (click)="like()"></nb-icon></button>
                 <button nbButton status="success" (click)="adopt()">Adopt</button>
+                <button nbButton status="success" (click)="editInfo()">Edit Info</button>
             </div>
         </div>
         <div class="col-12">
@@ -26,7 +27,10 @@
         </div>
         <div class="col-12">
             <p></p>
-            <img class="details_map" src="https://www.seoshark.co.nz/wp-content/uploads/2018/11/local-seo.png" />
+            <!-- <img class="details_map" src="https://www.seoshark.co.nz/wp-content/uploads/2018/11/local-seo.png" /> -->
+            <agm-map [latitude]="lat" [longitude]="long">
+                <agm-marker [latitude]="lat" [longitude]="long"></agm-marker>
+            </agm-map>
         </div>
         <div class="col-12">
             <button nbButton shape="round" outline size="small" status="success">Map</button>

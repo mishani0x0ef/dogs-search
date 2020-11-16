@@ -1,8 +1,9 @@
 import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
 
 import { AdoptionPageComponent } from './adoption-page/adoption-page.component';
 import { DogDetailsComponent } from './dog-details/dog-details.component';
-import { NgModule } from '@angular/core';
+import { DogEditComponent } from './dog-edit/dog-edit.component';
 
 const routes: Routes = [
     {
@@ -13,6 +14,10 @@ const routes: Routes = [
         path: ':id',
         component: DogDetailsComponent,
     },
+    {
+        path: 'dog-edit/:id',
+        component: DogEditComponent
+    }
 ];
 
 @NgModule({

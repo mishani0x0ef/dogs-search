@@ -11,6 +11,8 @@ import { MyErrorHandler } from './shared/services/error-handler.service';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { SentryErrorHandler } from './shared/services/sentry-handler.service';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,8 +26,8 @@ import { SentryErrorHandler } from './shared/services/sentry-handler.service';
     NbLayoutModule,
     NbEvaIconsModule,
     NbCardModule,
-
     LayoutModule,
+
   ],
   providers: [
     { provide: ErrorHandler, useClass: SentryErrorHandler }
