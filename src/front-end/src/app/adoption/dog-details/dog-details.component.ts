@@ -50,9 +50,9 @@ export class DogDetailsComponent extends PageComponent implements OnInit {
             this.router.navigate(['adoption']);
         });
   }
-    editInfo() {
-        this.router.navigate(['adoption/dog-edit/:id']);
-    }
+    // editInfo() {
+    //     this.router.navigate(['adoption/dog-edit/:id']);
+    // }
 
   like() {
     this.dogsService.like(this.dog.id)

@@ -1,1 +1,15 @@
 <p>dog-edit works!</p>
+<!-- <input > -->
+<form [formGroup]="editDogInfoForm" (ngSubmit)="submit()">
+
+    <div class="form-group">
+        <label>Email address</label>
+        <input type="text" formControlName="name" nbInput>
+    </div>
+    <p>{{ editDogInfoForm.value.name }}</p>
+
+    <!-- <app-file-upload formControlName="image" [progress]="progress"></app-file-upload> -->
+
+    <button nbButton outline status="success">Submit</button>
+
+</form>
