@@ -21,7 +21,7 @@ export class DogsService {
   }
 
   adopt(id: string): Observable<any> {
-    return this.http.post(`http://localhost:5000/dogs/`, {like: 1});
+    return this.http.post(`http://localhost:5000/dogs/${id}`, {like: 1});
   }
 
   // Ooooops! This method isn't working
