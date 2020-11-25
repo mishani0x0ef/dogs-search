@@ -5,12 +5,12 @@
     <div class="form-group">
         <div class="input-container">
             <label for="input">Поганяло</label>
-            <input type="text" formControlName="name" nbInput>
+            <input type="text" name="input" formControlName="name" nbInput>
         </div>
         <div class="input-container">
             <label for="checkbox">Статус Опіки</label>
-            <nb-checkbox type="checkbox" formControlName="isAdopted">
-                <!-- {{ isAdopted === true ? 'Взято під опіку' : 'Без опіки' }} !why dis isnt working ? -->
+            <nb-checkbox type="checkbox" name="checkbox" formControlName="isAdopted">
+                {{ adoptionStatus }}
             </nb-checkbox>
         </div>
         <div class="input-container">
@@ -20,16 +20,20 @@
                 <nb-radio value="female">Female</nb-radio>
             </nb-radio-group>
         </div>
-        <div class="input-container">
-            <input nbInput type="text" formControlName="location">
+        <div formGroupName="location" class="input-container">
+            <p>Координати:</p>
+            <label for="lat">Широта</label>
+            <input type="text" name="lat" formControlName="lat" nbInput>
+            <label for="long">Довгота</label>
+            <input type="text" name="long" formControlName="long" nbInput>
         </div>
         <div class="input-container">
-            <label for="text">Дай лінк на картінку для авва авва</label>
-            <input type="text" formControlName="imageUrl" nbInput>
+            <label for="imageUrl">Дай лінк на картінку для авва авва</label>
+            <input type="text" name="imageUrl" formControlName="imageUrl" nbInput>
         </div>
         <div class="input-container">
-            <label for="text">Додаткова картінка</label>
-            <input nbInput type="text" formControlName="additionalImages" >
+            <label for="additionalImages">Додаткова картінка</label>
+            <input nbInput type="text" name="additionalImages" formControlName="additionalImages" >
         </div>
         <div class="input-container">
             <textarea nbInput fullWidth placeholder="Textarea" formControlName="story"></textarea>
@@ -44,4 +48,5 @@
     <p>{{ editDogInfoForm.value.isAdopted }}</p>
     <p>{{ editDogInfoForm.value.genderOption }}</p>
     <p>{{ editDogInfoForm.value.story }}</p>
+    <p>{{ editDogInfoForm.value.location.lat }}</p>
 </form>

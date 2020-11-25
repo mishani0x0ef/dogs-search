@@ -19,13 +19,24 @@ export class DogEditComponent extends PageComponent implements OnInit {
     id: string;
     name: string;
     birthday: string;
+    imageUrl: string;
+    location: {
+        lat: number,
+        long: number,
+    };
     isAdopted: boolean;
     genderOption: string;
     story: string;
     additionalImages: [''];
 
+    get adoptionStatus() {
+        return this.isAdopted === true ? 'Взято під опіку' : 'Без опіки';
+    }
+
     constructor(title: Title, private formBuilder: FormBuilder, private dogsService: DogsService, private route: ActivatedRoute) {
         super(title, 'Dog');
+        const a = this.adoptionStatus;
+        console.log(a);
     }
 
     ngOnInit(): void {
@@ -35,11 +46,11 @@ export class DogEditComponent extends PageComponent implements OnInit {
                     this.dog = dog;
                     this.setTitle(dog.name);
                     this.name = dog.name;
-                    console.log(this.dog.imageUrl);
+                    // console.log(this.dog.location.lat);
                     this.editDogInfoForm.patchValue({
                         id: this.dog.id,
                         name: this.dog.name,
-                        birthday: this.dog,
+                        birthday: this.dog.birthday,
                         imageUrl: this.dog.imageUrl,
                         genderOption: this.dog.gender,
                         story: this.dog.story,
@@ -61,10 +72,10 @@ export class DogEditComponent extends PageComponent implements OnInit {
             imageUrl: '',
             genderOption: '',
             story: '',
-            location: {
+            location: this.formBuilder.group({
                 lat: 0,
                 long: 0,
-            },
+            }),
             additionalImages: [''],
             isAdopted: false,
             like: 0,

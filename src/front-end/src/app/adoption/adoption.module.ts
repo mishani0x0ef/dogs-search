@@ -9,6 +9,10 @@ import { DogDetailsComponent } from './dog-details/dog-details.component';
 import { AgmCoreModule } from '@agm/core';
 import { DogEditComponent } from './dog-edit/dog-edit.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { GalleryModule } from 'ng-gallery';
+import { GALLERY_CONFIG } from 'ng-gallery';
+
+
 
 @NgModule({
   declarations: [DogCardComponent, AdoptionPageComponent, DogDetailsComponent, DogEditComponent],
@@ -28,6 +32,16 @@ import { ReactiveFormsModule } from '@angular/forms';
     }),
 
     ReactiveFormsModule,
-  ]
+    GalleryModule,
+    ],
+    providers: [
+        {
+        provide: GALLERY_CONFIG,
+        useValue: {
+            dots: true,
+            imageSize: 'cover'
+        }
+        }
+    ]
 })
 export class AdoptionModule { }
