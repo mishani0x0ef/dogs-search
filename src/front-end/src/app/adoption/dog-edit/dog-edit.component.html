@@ -1,6 +1,5 @@
-<p>dog-edit works!</p>
-<!-- <input > -->
-<form [formGroup]="editDogInfoForm" (ngSubmit)="submit()">
+<p>Dog Edit Works!</p>
+<form [formGroup]="editDogInfoForm" (ngSubmit)="submitEditForm()">
 
     <div class="form-group">
         <div class="input-container">
@@ -15,7 +14,7 @@
         </div>
         <div class="input-container">
             <label for="radio">Секс</label>
-            <nb-radio-group formControlName="genderOption">
+            <nb-radio-group formControlName="gender">
                 <nb-radio value="male">Male</nb-radio>
                 <nb-radio value="female">Female</nb-radio>
             </nb-radio-group>

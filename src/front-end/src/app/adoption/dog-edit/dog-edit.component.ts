@@ -1,11 +1,12 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { Dog } from 'src/app/shared/models';
 import { DogsService } from '../services/dogs.service';
 import { PageComponent } from 'src/app/shared/components/base';
 import { Title } from '@angular/platform-browser';
+
 
 
 @Component({
@@ -25,7 +26,7 @@ export class DogEditComponent extends PageComponent implements OnInit {
         long: number,
     };
     isAdopted: boolean;
-    genderOption: string;
+    gender: string;
     story: string;
     additionalImages: [''];
 
@@ -33,10 +34,9 @@ export class DogEditComponent extends PageComponent implements OnInit {
         return this.isAdopted === true ? 'Взято під опіку' : 'Без опіки';
     }
 
-    constructor(title: Title, private formBuilder: FormBuilder, private dogsService: DogsService, private route: ActivatedRoute) {
+    constructor(title: Title, private formBuilder: FormBuilder, private dogsService: DogsService,
+                private route: ActivatedRoute, private router: Router) {
         super(title, 'Dog');
-        const a = this.adoptionStatus;
-        console.log(a);
     }
 
     ngOnInit(): void {
@@ -52,7 +52,7 @@ export class DogEditComponent extends PageComponent implements OnInit {
                         name: this.dog.name,
                         birthday: this.dog.birthday,
                         imageUrl: this.dog.imageUrl,
-                        genderOption: this.dog.gender,
+                        gender: this.dog.gender,
                         story: this.dog.story,
                         location: {
                             lat: this.dog.location.lat,
@@ -67,10 +67,10 @@ export class DogEditComponent extends PageComponent implements OnInit {
 
         this.editDogInfoForm = this.formBuilder.group({
             id: '',
-            name: '',
+            name: ['', [Validators.required, Validators.minLength(3)]],
             birthday: '',
             imageUrl: '',
-            genderOption: '',
+            gender: '',
             story: '',
             location: this.formBuilder.group({
                 lat: 0,
@@ -82,12 +82,11 @@ export class DogEditComponent extends PageComponent implements OnInit {
         });
     }
 
-//       get radio(): AbstractControl {
-//     return this.editDogInfoForm.get("radio");
-//   };
-
-  submit() {
-
+  submitEditForm() {
+      this.dogsService.submitEditForm(this.editDogInfoForm).subscribe(() => {
+          console.log(this.dog.id);
+          this.router.navigate(['adoption']);
+    });
   }
 
 }

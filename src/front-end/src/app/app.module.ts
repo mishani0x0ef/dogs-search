@@ -1,21 +1,21 @@
-import { ErrorHandler, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbCardModule, NbLayoutModule, NbThemeModule } from '@nebular/theme';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from './layout/layout.module';
-import { MyErrorHandler } from './shared/services/error-handler.service';
-import { NbEvaIconsModule } from '@nebular/eva-icons';
-import { SentryErrorHandler } from './shared/services/sentry-handler.service';
-
+import { HttpErrorInterceptor } from './http-error-interceptor/http-error.interceptor';
+import { ErrorPageComponent } from './shared/components/error-page/error-page.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    ErrorPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,8 +29,12 @@ import { SentryErrorHandler } from './shared/services/sentry-handler.service';
     LayoutModule,
 
   ],
-  providers: [
-    { provide: ErrorHandler, useClass: SentryErrorHandler }
+    providers: [
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: HttpErrorInterceptor,
+            multi: true,
+      }
   ],
   bootstrap: [AppComponent]
 })

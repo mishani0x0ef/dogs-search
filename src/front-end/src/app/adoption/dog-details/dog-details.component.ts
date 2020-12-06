@@ -30,7 +30,8 @@ export class DogDetailsComponent extends PageComponent implements OnInit {
       : { status: 'primary', adoptionText: 'Усиновити', textStatus: 'text-primary' };
   }
 
-  constructor(title: Title, private dogsService: DogsService, private router: Router, private route: ActivatedRoute) {
+    constructor(title: Title, private dogsService: DogsService, private router: Router,
+                private route: ActivatedRoute) {
     super(title, 'Dog');
   }
 
@@ -49,20 +50,19 @@ export class DogDetailsComponent extends PageComponent implements OnInit {
             ];
         });
     });
-    // Set gallery items array
   }
 
   adopt() {
     this.dogsService.adopt(this.dog.id)
         .subscribe(() => {
-            console.log(this.dog.id);
             alert('You are awesome! Thank you!');
             this.router.navigate(['adoption']);
         });
   }
-    // editInfo() {
-    //     this.router.navigate(['adoption/dog-edit/:id']);
-    // }
+
+  editInfo() {
+    this.router.navigate(['adoption/dog-edit/:id']);
+  }
 
   like() {
     this.dogsService.like(this.dog.id)
