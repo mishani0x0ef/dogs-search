@@ -1,14 +1,15 @@
 <p>Dog Edit Works!</p>
-<form [formGroup]="editDogInfoForm" (ngSubmit)="submitEditForm()">
+<form [formGroup]="editDogInfoForm" (ngSubmit)="submitEditForm()" *ngIf="dog">
 
-    <div class="form-group">
+    <div class="form-group" >
         <div class="input-container">
             <label for="input">Поганяло</label>
-            <input type="text" name="input" formControlName="name" nbInput>
+            <input type="text" name="input" formControlName="name" nbInput [ngClass]="{'is-invalid': submitted && formField.name.errors}">
+            <p class="text-danger" *ngIf="submitted && formField.name.errors">Dis field is required! Min length is 3 char</p>
         </div>
         <div class="input-container">
             <label for="checkbox">Статус Опіки</label>
-            <nb-checkbox type="checkbox" name="checkbox" formControlName="isAdopted">
+            <nb-checkbox type="checkbox" name="checkbox" (change)="adoptionStatusonChange()" formControlName="isAdopted">
                 {{ adoptionStatus }}
             </nb-checkbox>
         </div>

@@ -1,13 +1,13 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { Dog } from 'src/app/shared/models';
 import { DogsService } from '../services/dogs.service';
 import { PageComponent } from 'src/app/shared/components/base';
-import { Title } from '@angular/platform-browser';
 
-
+import { imageLinkValidator } from '../../shared/validators/image-link.validator';
 
 @Component({
   selector: 'app-dog-edit',
@@ -29,10 +29,14 @@ export class DogEditComponent extends PageComponent implements OnInit {
     gender: string;
     story: string;
     additionalImages: [''];
+    submitted: boolean;
+    adoptionStatus = 'без опіки';
 
-    get adoptionStatus() {
-        return this.isAdopted === true ? 'Взято під опіку' : 'Без опіки';
-    }
+    // get adoptionStatus() {
+    //     return this.isAdopted === true ? 'Взято під опіку' : 'Без опіки';
+    // }
+
+    get formField() { return this.editDogInfoForm.controls; }
 
     constructor(title: Title, private formBuilder: FormBuilder, private dogsService: DogsService,
                 private route: ActivatedRoute, private router: Router) {
@@ -46,7 +50,7 @@ export class DogEditComponent extends PageComponent implements OnInit {
                     this.dog = dog;
                     this.setTitle(dog.name);
                     this.name = dog.name;
-                    // console.log(this.dog.location.lat);
+
                     this.editDogInfoForm.patchValue({
                         id: this.dog.id,
                         name: this.dog.name,
@@ -68,25 +72,39 @@ export class DogEditComponent extends PageComponent implements OnInit {
         this.editDogInfoForm = this.formBuilder.group({
             id: '',
             name: ['', [Validators.required, Validators.minLength(3)]],
-            birthday: '',
-            imageUrl: '',
-            gender: '',
-            story: '',
+            birthday: ['', [Validators.required, Validators.minLength(3)]],
+            imageUrl: ['', imageLinkValidator],
+            gender: ['', [Validators.required, Validators.minLength(3)]],
+            story: ['', [Validators.required, Validators.minLength(3)]],
             location: this.formBuilder.group({
-                lat: 0,
-                long: 0,
+                lat: [0, Validators.required],
+                long: [0, Validators.required],
             }),
-            additionalImages: [''],
+            additionalImages: [['', imageLinkValidator]],
             isAdopted: false,
             like: 0,
         });
     }
 
-  submitEditForm() {
-      this.dogsService.submitEditForm(this.editDogInfoForm).subscribe(() => {
-          console.log(this.dog.id);
-          this.router.navigate(['adoption']);
-    });
-  }
+    adoptionStatusonChange() {
+        if (this.editDogInfoForm.value.isAdopted === false) {
+            this.adoptionStatus = 'без опіки';
+        } else {
+            this.adoptionStatus = 'взято під опіку';
+        }
+    }
+
+    submitEditForm() {
+        this.submitted = true;
+        if (this.editDogInfoForm.invalid) {
+            console.log('form is invalid');
+            return;
+        } else {
+            this.dogsService.submitEditForm(this.editDogInfoForm).subscribe(() => {
+                console.log(this.dog.id);
+                this.router.navigate(['adoption']);
+            });
+        }
+    }
 
 }
