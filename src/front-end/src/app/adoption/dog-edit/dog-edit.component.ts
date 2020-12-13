@@ -6,7 +6,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Dog } from 'src/app/shared/models';
 import { DogsService } from '../services/dogs.service';
 import { PageComponent } from 'src/app/shared/components/base';
-
 import { imageLinkValidator } from '../../shared/validators/image-link.validator';
 
 @Component({
@@ -31,10 +30,6 @@ export class DogEditComponent extends PageComponent implements OnInit {
     additionalImages: [''];
     submitted: boolean;
     adoptionStatus = 'без опіки';
-
-    // get adoptionStatus() {
-    //     return this.isAdopted === true ? 'Взято під опіку' : 'Без опіки';
-    // }
 
     get formField() { return this.editDogInfoForm.controls; }
 
@@ -75,7 +70,7 @@ export class DogEditComponent extends PageComponent implements OnInit {
             birthday: ['', [Validators.required, Validators.minLength(3)]],
             imageUrl: ['', imageLinkValidator],
             gender: ['', [Validators.required, Validators.minLength(3)]],
-            story: ['', [Validators.required, Validators.minLength(3)]],
+            story: ['', [Validators.required, Validators.minLength(20)]],
             location: this.formBuilder.group({
                 lat: [0, Validators.required],
                 long: [0, Validators.required],

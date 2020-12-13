@@ -1,5 +1,5 @@
 import { BaseComponent } from 'src/app/shared/components/base';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LayoutService } from '../services/layout.service';
 
 @Component({

@@ -1,0 +1,7 @@
+<p>filter-bar component works!</p>
+<div class="filter-bar-container">
+    <button (click)="sendFilterValue('all')" [routerLink]="[]" [queryParams]="filterParams" queryParamsHandling="merge"
+        class="filter-button" nbButton status="danger">All</button>
+    <button (click)="sendFilterValue('cat')" class="filter-button" nbButton status="danger">Cat</button>
+    <button (click)="sendFilterValue('dog')" class="filter-button" nbButton status="danger">Dog</button>
+</div>

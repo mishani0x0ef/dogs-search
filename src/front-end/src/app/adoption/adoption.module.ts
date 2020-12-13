@@ -11,11 +11,13 @@ import { DogEditComponent } from './dog-edit/dog-edit.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GalleryModule } from 'ng-gallery';
 import { GALLERY_CONFIG } from 'ng-gallery';
+import { FilterByTypePipe } from './pipes/filter-by-type.pipe';
+import { FilterBarComponent } from './filter-bar/filter-bar.component';
 
 
 
 @NgModule({
-  declarations: [DogCardComponent, AdoptionPageComponent, DogDetailsComponent, DogEditComponent],
+  declarations: [DogCardComponent, AdoptionPageComponent, DogDetailsComponent, DogEditComponent, FilterByTypePipe, FilterBarComponent],
   imports: [
     CommonModule,
     AdoptionRoutingModule,

@@ -16,5 +16,5 @@ export class LayoutService {
     toggleMenuVisibility() {
         this.menuOpened = !this.menuOpened;
         this.click.next(this.menuOpened);
-  }
+    }
 }

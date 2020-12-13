@@ -4,5 +4,13 @@
     grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
     grid-gap: 20px;
     max-width: 1280px;
-    margin: auto;
+    margin: 36px 0;
 }
+// .filter-bar-container {
+//     display: flex;
+//     justify-content: center;
+
+//     .filter-button {
+//         margin: 0 10px;
+//     }
+// }
