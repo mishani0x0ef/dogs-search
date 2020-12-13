@@ -14,7 +14,6 @@ import { FilterByTypePipe } from '../pipes/filter-by-type.pipe';
 })
 export class AdoptionPageComponent extends PageComponent implements OnInit {
     dogs: Dog[] = [];
-    filter = 'all';
 
 
   constructor(title: Title, private dogsService: DogsService, private filterService: FilterService) {
@@ -27,6 +26,6 @@ export class AdoptionPageComponent extends PageComponent implements OnInit {
             .subscribe((dogs) => this.dogs = dogs)
     );
 
-    this.filterService.dogs.subscribe(x => this.dogs = x);
+    this.filterService.dogs.subscribe(filteredData => this.dogs = filteredData);
   }
 }
