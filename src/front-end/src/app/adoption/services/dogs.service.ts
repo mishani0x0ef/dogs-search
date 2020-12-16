@@ -1,9 +1,10 @@
-import { Observable, from } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Severity, addBreadcrumb } from '@sentry/browser';
 
 import { Dog } from 'src/app/shared/models';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 
 @Injectable({
   providedIn: 'root'
@@ -20,11 +21,15 @@ export class DogsService {
     return this.http.get<Dog>(`/api/dogs/${id}`);
   }
 
-  adopt(id: string): Observable<any> {
-    return this.http.post(`/api/dogs/${id}/adopt`, null);
+  submitEditForm(editDogInfoForm: any): Observable<any>  {
+      return this.http.put(`http://localhost:5000/dogs/${editDogInfoForm.value.id}`, editDogInfoForm.value);
   }
 
-  // Ooooops! This method isn't working
+  // Ooooops! Dis methods aren't working
+  adopt(id: string): Observable<any> {
+    return this.http.post(`http://localhost:5000/dogs/${id}`, {like: 1});
+  }
+
   like(id: string): Observable<any> {
     addBreadcrumb({
       category: 'action',
@@ -33,4 +38,6 @@ export class DogsService {
     });
     return this.http.post(`/api/dogs/${id}/like`, null);
   }
+
+
 }

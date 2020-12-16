@@ -1,0 +1,52 @@
+<p>Dog Edit Works!</p>
+<form [formGroup]="editDogInfoForm" (ngSubmit)="submitEditForm()" *ngIf="dog">
+
+    <div class="form-group" >
+        <div class="input-container">
+            <label for="input">Поганяло</label>
+            <input type="text" name="input" formControlName="name" nbInput [ngClass]="{'is-invalid': submitted && formField.name.errors}">
+            <p class="text-danger" *ngIf="submitted && formField.name.errors">Dis field is required! Min length is 3 char</p>
+        </div>
+        <div class="input-container">
+            <label for="checkbox">Статус Опіки</label>
+            <nb-checkbox type="checkbox" name="checkbox" (change)="adoptionStatusonChange()" formControlName="isAdopted">
+                {{ adoptionStatus }}
+            </nb-checkbox>
+        </div>
+        <div class="input-container">
+            <label for="radio">Секс</label>
+            <nb-radio-group formControlName="gender">
+                <nb-radio value="male">Male</nb-radio>
+                <nb-radio value="female">Female</nb-radio>
+            </nb-radio-group>
+        </div>
+        <div formGroupName="location" class="input-container">
+            <p>Координати:</p>
+            <label for="lat">Широта</label>
+            <input type="text" name="lat" formControlName="lat" nbInput>
+            <label for="long">Довгота</label>
+            <input type="text" name="long" formControlName="long" nbInput>
+        </div>
+        <div class="input-container">
+            <label for="imageUrl">Дай лінк на картінку для авва авва</label>
+            <input type="text" name="imageUrl" formControlName="imageUrl" nbInput>
+        </div>
+        <div class="input-container">
+            <label for="additionalImages">Додаткова картінка</label>
+            <input nbInput type="text" name="additionalImages" formControlName="additionalImages" >
+        </div>
+        <div class="input-container">
+            <textarea nbInput fullWidth placeholder="Textarea" formControlName="story"></textarea>
+        </div>
+        <div class="input-container">
+            <button nbButton outline status="success">Зберегти зміни</button>
+        </div>
+    </div>
+
+    
+    <p>{{ editDogInfoForm.value.name }}</p>
+    <p>{{ editDogInfoForm.value.isAdopted }}</p>
+    <p>{{ editDogInfoForm.value.genderOption }}</p>
+    <p>{{ editDogInfoForm.value.story }}</p>
+    <p>{{ editDogInfoForm.value.location.lat }}</p>
+</form>

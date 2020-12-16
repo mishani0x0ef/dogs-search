@@ -1,7 +1,14 @@
 <div class="header">
-    <div class="header_logo">
-        <img src="assets/icons/dog-running.svg">
-    </div>
-    <div class="header_title">uPSA</div>
-    <app-navigation></app-navigation>
+  <div class="header_logo">
+    <img class="logo-image" src="../../../assets/images/logo-cookies.svg" />
+  </div>
+
+  <app-navigation
+    class="nav-mobile"
+    [ngClass]="{ 'nav-mobile--opened': isMenuOpened }"
+  ></app-navigation>
+  <div class="menu-btn-mobile">
+    <input type="checkbox" [checked]="isMenuOpened" [value]="isMenuOpened" id="toggle-text-on-left" (click)="toggleMenuVisibility()" />
+    <label for="toggle-text-on-left"><i></i><span></span></label>
+  </div>
 </div>

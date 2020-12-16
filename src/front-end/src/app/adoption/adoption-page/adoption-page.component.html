@@ -1,5 +1,14 @@
+<!-- <div class="filter-bar-container">
+    <button (click)="sendFilterValue('all')" [routerLink]="[]" [queryParams]="filterParams" queryParamsHandling="merge" class="filter-button" nbButton status="danger">All</button>
+    <button (click)="sendFilterValue('cat')" class="filter-button" nbButton status="danger">Cat</button>
+    <button (click)="sendFilterValue('dog')" class="filter-button" nbButton status="danger">Dog</button>
+</div> -->
+<app-filter-bar></app-filter-bar>
 <div class="page">
-    <div class="row">
-        <app-dog-card class="col-3" *ngFor="let dog of dogs" [dog]="dog"></app-dog-card>
-    </div>
+    
+    <app-dog-card
+        class="dog-card-container"
+        *ngFor="let dog of dogs"
+        [dog]="dog"
+    ></app-dog-card>
 </div>

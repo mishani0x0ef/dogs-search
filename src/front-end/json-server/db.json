@@ -2,20 +2,53 @@
   "dogs": [
     {
       "id": "92bac510-cf2f-4942-9ff7-abab0b40c546",
-      "name": "Cookie",
+      "name": "Shonnnn",
+      "type": "cat",
       "birthday": "2020-11-13T16:24:49.671Z",
-      "imageUrl": "https://instagram.fiev9-1.fna.fbcdn.net/v/t51.2885-15/e35/s1080x1080/117429720_962039777629996_7491874173927597759_n.jpg?_nc_ht=instagram.fiev9-1.fna.fbcdn.net&_nc_cat=104&_nc_ohc=Y2an1UQHE4IAX-LlM_a&_nc_tp=15&oh=2f743b4eaf2d1df27410fbbc1122a557&oe=5F8A000B",
+      "imageUrl": "https://i.ytimg.com/vi/1Ne1hqOXKKI/maxresdefault.jpg",
+      "gender": "male",
+      "story": "котік, коцюбасик, кусю, котан, какулічкін, сотонятко^^",
+      "location": {
+        "lat": 48.8954658,
+        "long": 24.7614244
+      },
+      "additionalImages": "https://ichef.bbci.co.uk/news/976/cpsprodpb/12A9B/production/_111434467_gettyimages-1143489763.jpg",
+      "isAdopted": false,
+      "like": 1
+    },
+    {
+      "id": "1232fafa-14124-gsaga-12e21w",
+      "name": "Takumich",
+      "type": "cat",
       "gender": "female",
-      "story": "",
+      "imageUrl": "https://ichef.bbci.co.uk/news/976/cpsprodpb/12A9B/production/_111434467_gettyimages-1143489763.jpg",
+      "story": "котік, коцюбасик, кусю, котан",
       "location": {
         "lat": 48.8954658,
         "long": 24.7614244
       },
       "additionalImages": [
-        "https://instagram.fiev9-1.fna.fbcdn.net/v/t51.2885-15/e35/s1080x1080/117429720_962039777629996_7491874173927597759_n.jpg?_nc_ht=instagram.fiev9-1.fna.fbcdn.net&_nc_cat=104&_nc_ohc=Y2an1UQHE4IAX-LlM_a&_nc_tp=15&oh=2f743b4eaf2d1df27410fbbc1122a557&oe=5F8A000B"
+        "https://i.ytimg.com/vi/1Ne1hqOXKKI/maxresdefault.jpg"
       ],
       "isAdopted": false,
-      "age": 2
+      "like": 1
+    },
+        {
+      "id": "12314gsd-431-35gsf-325f",
+      "name": "Cookie",
+      "type": "dog",
+      "gender": "male",
+      "imageUrl": "https://i.pinimg.com/originals/8a/a3/c1/8aa3c173d023151d063a60bb30151900.jpg",
+      "story": "песь",
+      "location": {
+        "lat": 48.8954658,
+        "long": 24.7614244
+      },
+      "additionalImages": [
+        "https://static.thebark.com/sites/default/files/styles/full/public/content/blog/full/laughing-dog-joke.jpg?itok=4Bzu0Y3o"
+      ],
+      "isAdopted": false,
+      "like": 1
     }
   ]
 }

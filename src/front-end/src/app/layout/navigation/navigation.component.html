@@ -1,9 +1,37 @@
 <nb-actions class="nav" size="small">
-    <nb-action>
-        <a routerLink="/adoption" routerLinkActive="nav_link--active">Adopt</a>
-        <a routerLink="/tobedone" routerLinkActive="nav_link--active">SOS</a>
-        <a routerLink="/tobedone" routerLinkActive="nav_link--active">Missing</a>
-        <a routerLink="/tobedone" routerLinkActive="nav_link--active">My Dog</a>
-        <a routerLink="/tobedone" routerLinkActive="nav_link--active">Stories</a>
-    </nb-action>
+  <nb-action
+    class="nav-link"
+    routerLink="/adoption"
+    routerLinkActive="nav_link--active"
+    (click)="toggleMenuVisibility()"
+    >Візьмуу Пса</nb-action
+  >
+  <nb-action
+    class="nav-link"
+    routerLink="/tobedone"
+    routerLinkActive="nav_link--active"
+    (click)="toggleMenuVisibility()"
+    >SOS</nb-action
+  >
+  <nb-action
+    class="nav-link"
+    routerLink="/tobedone"
+    routerLinkActive="nav_link--active"
+    (click)="toggleMenuVisibility()"
+    >Пропав Пес</nb-action
+  >
+  <nb-action
+    class="nav-link"
+    routerLink="/tobedone"
+    routerLinkActive="nav_link--active"
+    (click)="toggleMenuVisibility()"
+    >Мій Кекс</nb-action
+  >
+  <nb-action
+    class="nav-link"
+    routerLink="/tobedone"
+    routerLinkActive="nav_link--active"
+    (click)="toggleMenuVisibility()"
+    >Історії</nb-action
+  >
 </nb-actions>
